@@ -1,135 +1,554 @@
-<!DOCTYPE html><html lang="en"><head> 
-  <meta name="google-site-verification" content="IguBhkZZ79AMxTBgWXeNprwLIpLnUjrsyWd0_R2fxjw" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soumojit Mandal | Portfolio</title> 
-<meta name="description" content="Soumojit Mandal - Personal portfolio of a 16-year-old tech enthusiast from Sargachi RK Mission High School.">
-<meta name="author" content="Soumojit Mandal">
-  <style>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Soumojit Mandal | Portfolio</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+  <style>  
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #ffffff;
-  overflow-x: hidden;
-}
+      margin: 0; padding: 0; box-sizing: border-box;  
+      font-family: 'Poppins', sans-serif;  
+      scroll-behavior: smooth;  
+    }  
+    body {
+      background: linear-gradient(to bottom, #000428, #004e92);  
+      color: #fff;  
+      overflow-x: hidden;  
+    }  
+    header {
+      background: rgba(0,0,0,0.6);  
+      position: fixed;  
+      top: 0; left: 0; right: 0;  
+      display: flex;  
+      justify-content: center;  
+      padding: 20px;  
+      z-index: 1000;  
+      backdrop-filter: blur(10px);  
+    }  
+    header h1 {
+      font-size: 28px;  
+    }  
+    header h1 span:first-child {
+      color: #00c6ff;  
+    }  
+    header h1 span:last-child {
+      color: #ff6ec4;  
+    }
+    .section-contact {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 25px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .hero {
+      margin-top: 100px;
+      text-align: center;
+      background: linear-gradient(to right, #141e30, #243b55);
+      padding: 80px 20px;
+      border-radius: 16px;
+    }
+    .hero h2 {
+      font-size: 40px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #0ff;
+      color: #000;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .profile-pic {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .profile-pic img {
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      border: 3px solid #0ff;
+      object-fit: cover;
+    }
+    .typing-caption {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+    .typing-caption .static-text {
+      color: #fff;
+    }
+    .typing-caption .typed-text {
+      color: #0ff;
+      border-right: 2px solid #0ff;
+    }
+    .section-title {
+      font-size: 26px;
+      color: #0ff;
+      border-left: 5px solid #0ff;
+      padding-left: 15px;
+      margin-bottom: 15px;
+    }
+    .content-box {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    .skills-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 column per row */
+  gap: 20px;
 
-header {
-  text-align: center;
-  padding: 60px 20px;
-  animation: fadeDown 1s ease;
+    }
+    .skill {
+  width: 140px;
+  height: 140px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  color: #0ff;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
-
-header h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-  color: #00ffe7;
+.skill.animate-left {
+  transform: translateX(0);
+  opacity: 1;
 }
-
-header p {
-  font-size: 1.2em;
-  color: #cccccc;
+.skill.animate-right {
+  transform: translateX(0);
+  opacity: 1;
 }
-
-section {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  animation: fadeUp 1s ease;
+.skill:nth-child(odd) {
+  transform: translateX(-60px);
 }
-
-section h2 {
-  font-size: 2em;
-  border-bottom: 2px solid #00ffe7;
-  margin-bottom: 20px;
-  padding-bottom: 5px;
-  color: #00ffe7;
+.skill:nth-child(even) {
+  transform: translateX(60px);
 }
-
-section p, ul {
-  font-size: 1em;
-  line-height: 1.6;
+    .quote-box {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+      font-style: italic;
+      min-height: 60px;
+      transition: opacity 1s ease;
+    }
+    .contact-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .icon-left {
+      font-size: 18px;
+      color: #0ff;
+      flex-shrink: 0;
+    }
+    .contact-box {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 10px 15px;
+      width: 260px;
+      border-radius: 10px;
+      flex-grow: 1;
+      color: #fff;
+    }
+    .social-icons {
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: #0ff;
+      font-size: 20px;
+      margin-right: 15px;
+    }
+    .review-form input, .review-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: none;
+    }
+    .review-form button {
+      padding: 10px 20px;
+      background: #0ff;
+      margin-top: 20px;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .review-box {
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+    .review-stars {
+      color: gold;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .review-meta {
+      font-size: 13px;
+      color: #ccc;
+      margin-bottom: 5px;
+    }
+    footer {
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    .star-rating {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+  cursor: pointer;
 }
-
-ul li {
-  margin-bottom: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
+.star {
+  font-size: 25px;
   color: #888;
+  transition: color 0.3s ease;
+}
+.star.selected {
+  color: gold;
+}
+.skill {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  color: #0ff;
+  font-weight: 600;
+  text-align: center;
+  animation: floatIn 0.8s ease forwards;
+  transform: translateY(50px);
+  opacity: 0;
+}
+.skill span {
+  display: block;
+  margin-top: 8px;
+  color: #ccc;
+  font-size: 14px;
+}
+@keyframes floatIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.skill-box {
+  width: 45%;
+  aspect-ratio: 1/1;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+.skill-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.review-box {
+  width: 250px;
+  height: 250px;
+  background: rgba(255,255,255,0.08);
+  padding: 15px;
+  border-radius: 12px;
+  margin: 15px auto;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.6s ease forwards;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
   </style>
-</head><body>
-  <header>
-    <img src="School.jpg" alt="My Logo" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px;">
-    <h1>Soumojit Mandal</h1>
-    <p>Student | Web Developer | Quote Writer</p>
-  </header>  <section>
-    <h2>About Me</h2>
-    <p>I'm Soumojit Mandal, a 16-year-old student currently studying in class 10 at Sargachi Ramakrishna Mission High School. I'm highly passionate about technology and have been dedicating my time to learning coding, especially in the field of web development, with the goal of stepping into the world of freelancing. I believe coding is not just a skill but a superpower that allows me to build, create, and express ideas digitally. Apart from my academic interests, I love spending my leisure time playing games that challenge my thinking, watching anime that sparks imagination, and diving into movies that inspire emotions and creativity. I'm also a quote writer — I enjoy capturing deep thoughts and turning them into powerful lines that reflect life, emotions, and motivation. I’m a curious learner, always eager to explore new things, improve myself, and follow my passion with consistency and focus.
+</head>
+<body>
 
+  <header>
+    <h1><span>Soumojit</span> <span>Mandal</span></h1>
+  </header>
+
+  <section class="hero">
+    <h2>Hello, I'm Soumojit </h2>
+    <p>A passionate learner who finds peace in code and creativity in every line I write.</p>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+    <button onclick="document.getElementById('reviews').scrollIntoView({behavior: 'smooth'})">Rate Web</button>
+  </section>
+
+  <div class="profile-pic">
+    <img src="School.jpg" alt="Soumojit Profile Picture">
+    <div class="typing-caption">
+      <span class="static-text">I Am A </span>
+      <span class="typed-text" id="typed-text"></span>
+    </div>
+  </div>
+
+  <section id="about">
+    <h3 class="section-title">About Me</h3>
+    <div class="content-box">
+      <p>I am Soumojit Mandal, 16 years old, from West Bengal, India. I’m passionate about web development and also love writing quotes that express deep thoughts and emotions. In my free time, I enjoy exploring tech, creating websites, and noting down creative ideas. I have a simple personality—calm, confident, and always eager to learn. I believe in staying real, thinking deeply, and doing things with focus and meaning.
 </p>
-  </section>  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript (Basic)</li>
-      <li>Responsive Web Design</li>
-      <li>Basic Git & GitHub</li>
-      <li>Creative Writing (Quotes)</li>
-      <li>Gamer</li>
-    </ul>
-  </section>  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>Personal Portfolio Website</li>
-      <li>Basic HTML/CSS Landing Pages</li>
-      <li>Blog Layout with HTML & CSS</li>
-    </ul>
-  </section> 
-  <section>
-    <h2>Quote As an Example</h2> 
-    <ul>
-    <li>Experience Doesn't Depends on Your Age. It Depends How You've Explored The World.</li>
-    <li>No matter How strong or weak you are. Before a fight, people will argue with you  — so better defeat them with  words.</li>
-    </ul>
+    </div>
   </section>
-  <section>
-    <h2>Note</h2> 
-    <ul>
-      <li>I'm currently in the learning phase of coding and web development, constantly exploring new skills and sharpening my knowledge. Though I’m still growing, I’m passionate, dedicated, and putting in consistent effort every day. Very soon, I’ll be ready to take on real projects and client orders with full responsibility, creativity, and professionalism. Stay tuned — this is just the beginning.
-</li>
-    </ul>
+
+  <section id="skills">
+    <h3 class="section-title">My Skills</h3>
+    <div class="skills-container">
+      <div class="skill">HTML<span>Accuracy 95%</span></div>
+      <div class="skill">CSS<span>Accuracy 90%</span></div>
+      <div class="skill">JavaScript<span>Accuracy 88%</span></div>
+      <div class="skill">Python<span>Accuracy 85%</span></div>
+      <div class="skill">GitHub<span>experienced <br> 1 year</span></div>
+    </div>
   </section>
-  <section>
-    <h2>Contact</h2>
-    <p> Here you can Contact me on
-      <a href="https://www.instagram.com/_somu.xyz_?igsh=MTQ2bDhxNHpobTBnOA=="> Instagram </a> and,
-    </p>
-    <p> Click here to Contact on
-      <a href="https://www.facebook.com/share/1FJ4W77QRy/">Facebook</a> Massanger.
-    </p> 
-    <p>Email: soumojitmondal143@gmail.com</p>
+
+  <section id="Education">
+    <h3 class="section-title">Education</h3>
+    <div class="content-box">
+      <h3><u>Schooling</u></h3>
+      <p>I began my education at XYZ School, where I studied until Class 4. In 2020, I joined ABC School in Class 5, and I’m currently studying in Class 10. Over the years, ABC School has helped me grow not just academically, but also in confidence and discipline. From participating in various school activities to building strong friendships, my school journey has played a big role in shaping who I am today.
+</p> <br>
+<h3><u>Web Developer</u></h3>
+<p>I’m a self-taught web developer with 3 years of experience in building clean, modern, and responsive websites. I enjoy turning ideas into functional and visually appealing digital experiences using HTML, CSS, and JavaScript. Along with coding, I also write quotes that reflect deep thoughts and emotions. I’m always eager to learn, explore new technologies, and sharpen my skills. Focus, creativity, and consistency are at the core of everything I do.
+</p>
+    </div>
+  </section>
+
+  <section id="quotes">
+    <h3 class="section-title">Quotes</h3>
+    <div class="quote-box" id="quoteBox">“Code is like humor. When you have to explain it, it’s bad.”</div>
+  </section>
+
+  <section id="reviews">
+    <h3 class="section-title">Leave a Review</h3>
+    <div class="content-box"><form class="review-form" onsubmit="addReview(event)">
+      <p id="ratingMessage" style="color:#0ff; margin-top: 10px;"></p>
+  <input type="text" id="reviewer" placeholder="Your Name" required>
+  <textarea id="reviewText" rows="3" placeholder="Your Review" required></textarea>
+
+  <!-- ⭐ Tap Star Rating UI will go here -->
+  <div class="star-rating">
+    <i class="fas fa-star star" data-value="1"></i>
+    <i class="fas fa-star star" data-value="2"></i>
+    <i class="fas fa-star star" data-value="3"></i>
+    <i class="fas fa-star star" data-value="4"></i>
+    <i class="fas fa-star star" data-value="5"></i>
+  </div>
+
+  <!-- Hidden input to store rating -->
+  <input type="number" id="reviewStars" name="stars" hidden required>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div id="reviewDisplay"></div>
+      <div id="reviewDisplay"></div>
+    </div>
+  </section>
+  <section id="contact" class="section-contact">
+  <h3 class="section-title">Contact</h3>
+  <div class="content-box">
     
-  </section>  <footer>
-    <p>&copy; 2025 Soumojit Mandal. All rights reserved.</p>
+    <div class="contact-wrapper">
+      <i class="fab fa-whatsapp icon-left"></i>
+      <div class="contact-box">
+        <span>9547964700</span>
+      </div>
+    </div>
+
+    <div class="contact-wrapper">
+      <i class="fas fa-envelope icon-left"></i>
+      <div class="contact-box">
+        <span>soumojitmondal143@gmail.com</span>
+      </div>
+    </div>
+
+    <div class="contact-wrapper">
+      <i class="fas fa-map-marker-alt icon-left"></i>
+      <div class="contact-box">
+        <span>Sargachi, Murshidabad, West Bengal, India</span>
+      </div>
+    </div>
+<p style="font-size: 13px;">Click Icons Below To Visit My Social Profiles </p>
+
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_somu.xyz_?igsh=MTQ2bDhxNHpobTBnOA==" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1Nt85hXUW9/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://github.com/soumojit-web" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</section>
+<p style="text-align: center;">Thanks For Visiting.</p>
+  <footer>
+    © 2025 Soumojit Mandal. All rights reserved.
   </footer>
-</body></html>
+
+  <script>
+    const roles = ["Web Developer", "Student"];
+    let currentRole = 0;
+    const typedText = document.getElementById("typed-text");
+
+    function typeRole() {
+      let role = roles[currentRole];
+      let i = 0;
+      typedText.textContent = "";
+      const type = setInterval(() => {
+        if (i < role.length) {
+          typedText.textContent += role.charAt(i);
+          i++;
+        } else {
+          clearInterval(type);
+          setTimeout(() => {
+            currentRole = (currentRole + 1) % roles.length;
+            typeRole();
+          }, 2000);
+        }
+      }, 100);
+    }
+    typeRole();
+
+    const quotes = [
+      "Believe you can and you're halfway there.",
+  "Push yourself, because no one else is going to do it for you.",
+  "The harder you work for something, the greater you’ll feel when you achieve it.",
+  "Don’t watch the clock; do what it does. Keep going.",
+  "Success doesn’t just find you. You have to go out and get it.",
+  "Great things never come from comfort zones.",
+  "Dream it. Wish it. Do it.",
+  "Stay positive, work hard, make it happen."
+    ];
+    let quoteIndex = 0;
+    function showNextQuote() {
+      const box = document.getElementById("quoteBox");
+      box.style.opacity = 0;
+      setTimeout(() => {
+        box.textContent = quotes[quoteIndex];
+        box.style.opacity = 1;
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+      }, 500);
+    }
+    setInterval(showNextQuote, 5000);
+
+    function addReview(event) {
+      event.preventDefault();
+
+  // Check if already rated
+  if (localStorage.getItem("hasRated") === "true") {
+    alert("You have already submitted a review from this device.");
+    return;
+  }
+
+  const name = document.getElementById("reviewer").value;
+  const text = document.getElementById("reviewText").value;
+  const stars = document.getElementById("reviewStars").value;
+  const date = new Date().toLocaleDateString();
+
+  const box = document.createElement("div");
+  box.className = "review-box";
+  const starIcons = "★".repeat(stars) + "☆".repeat(5 - stars);
+
+  box.innerHTML = `
+    <div class="review-stars">${starIcons}</div>
+    <div class="review-meta">${name} • ${date}</div>
+    <p>${text}</p>
+  `;
+
+  document.getElementById("reviewDisplay").prepend(box);
+  event.target.reset();
+document.getElementById("ratingMessage").textContent = "Thanks for Rating ❤️‍🩹!";
+  // Mark this device as already rated
+  localStorage.setItem("hasRated", "true");
+}
+    const stars = document.querySelectorAll('.star');
+let selectedStars = 0;
+
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    selectedStars = parseInt(star.getAttribute('data-value'));
+    updateStarUI();
+    document.getElementById('reviewStars').value = selectedStars;
+  });
+});
+
+function updateStarUI() {
+  stars.forEach(star => {
+    const val = parseInt(star.getAttribute('data-value'));
+    if (val <= selectedStars) {
+      star.classList.add('selected');
+    } else {
+      star.classList.remove('selected');
+    }
+  });
+}
+const skillBoxes = document.querySelectorAll('.skill-box');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  skillBoxes.forEach(box => observer.observe(box));
+  </script>
+</body>
+    </html>
